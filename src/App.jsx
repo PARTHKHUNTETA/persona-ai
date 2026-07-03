@@ -4,12 +4,25 @@ import { getPersonaReply } from "./lib/chat.js";
 import ChatMessage from "./components/ChatMessage.jsx";
 import "./App.css";
 
-export default function App() {
-  const [personaId, setPersonaId] = useState(DEFAULT_PERSONA_ID);
+const STORAGE_KEY = "persona-ai-chats";
 
-  // Keep a SEPARATE conversation per persona so switching doesn't mix voices.
-  // Shape: { hitesh: [{role, content}], piyush: [...] }
-  const [chats, setChats] = useState({ hitesh: [], piyush: [] });
+function loadChats() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return { hitesh: [], piyush: [] };
+    return JSON.parse(raw);
+  } catch {
+    return { hitesh: [], piyush: [] }; // fallback if JSON is corrupt
+  }
+}
+
+export default function App() {
+  const [personaId, setPersonaId] = useState(
+    () => localStorage.getItem("persona-ai-persona") ?? DEFAULT_PERSONA_ID
+  );
+  
+ 
+  const [chats, setChats] = useState(loadChats);
 
   const [input, setInput] = useState("");
   const [isSending, setIsSending] = useState(false);
@@ -19,12 +32,24 @@ export default function App() {
   const messages = chats[personaId];
   const scrollRef = useRef(null);
 
-  // Auto-scroll to the newest message.
+  useEffect(() => {
+    const toSave = Object.fromEntries(
+      Object.entries(chats).map(([id, msgs]) => [
+        id,
+        msgs.filter((m) => m.content !== ""),
+      ])
+    );
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+  }, [chats]);
+
+  useEffect(() => {
+    localStorage.setItem("persona-ai-persona", personaId);
+  }, [personaId]);
+
   useEffect(() => {
     scrollRef.current?.scrollTo(0, scrollRef.current.scrollHeight);
   }, [messages, isSending]);
 
-  // Helper to update just the active persona's message list.
   function setActiveMessages(updater) {
     setChats((prev) => ({ ...prev, [personaId]: updater(prev[personaId]) }));
   }

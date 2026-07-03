@@ -8,7 +8,7 @@ const client = new OpenAI({
 
 const MODEL = "gpt-4o-mini"; 
 
-const MAX_HISTORY_MESSAGES = 30;
+const MAX_HISTORY_MESSAGES = 20;
 
 function exampleMessages(persona) {
   return (persona.examples ?? []).flatMap((ex) => [

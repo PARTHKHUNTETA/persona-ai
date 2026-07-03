@@ -130,7 +130,7 @@ Handled in `src/lib/chat.js`:
 - The **system prompt and few-shot examples are always included**, so the
   persona never drifts, even in a long conversation.
 - Only the **live back-and-forth is trimmed** — we keep the most recent
-  `MAX_HISTORY_MESSAGES` (12) turns. This caps token usage/cost and stays within
+  `MAX_HISTORY_MESSAGES` (20) turns. This caps token usage/cost and stays within
   model limits while preserving recent context and the persona.
 - Each persona has its **own separate conversation** in React state
   (`chats: { hitesh: [...], piyush: [...] }`), so switching personas never mixes
