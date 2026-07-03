@@ -173,7 +173,7 @@ Handled in `src/lib/chat.js`:
 ## 🛠️ Tech Stack
 
 - **React 19** + **Vite** — UI and tooling
-- **OpenAI API** (`gpt-4o-mini`) with streaming — the LLM
+- **OpenAI API** (`gpt-4o-mini`) 
 - Plain CSS — styling (no UI library, dependency-light)
 
 ## 🔮 Possible next steps
