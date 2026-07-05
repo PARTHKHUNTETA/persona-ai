@@ -175,6 +175,6 @@ Handled in `src/lib/chat.js`:
 ## 🛠️ Tech Stack
 
 - **React 19** + **Vite** — UI and tooling
-- **OpenAI API** (`gpt-4o-mini`) 
+- **OpenAI API** (`gpt-5.4-mini`) 
 - Plain CSS — styling (no UI library, dependency-light)
 

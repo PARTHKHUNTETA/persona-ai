@@ -6,7 +6,7 @@ const client = new OpenAI({
   dangerouslyAllowBrowser: true,
 });
 
-const MODEL = "gpt-4o-mini"; 
+const MODEL = "gpt-5.4-mini"; 
 
 const MAX_HISTORY_MESSAGES = 20;
 

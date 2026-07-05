@@ -9,7 +9,7 @@ An AI chat app that lets learners talk to **Hitesh Choudhary** and **Piyush Garg
 ## 1. How the persona data was collected and prepared
 
 ### Approach: in-context learning
-Personas are **character sheets** passed to a general-purpose LLM (`gpt-4o-mini`). The model stays in character via a detailed system prompt and curated few-shot examples — classic **in-context learning**.
+Personas are **character sheets** passed to a general-purpose LLM (`gpt-5.4-mini`). The model stays in character via a detailed system prompt and curated few-shot examples — classic **in-context learning**.
 
 ### Data sources
 Public content was studied to capture voice, values, and teaching style:
@@ -120,7 +120,7 @@ examples: [
 **Temperature 0.8**
 ### Model configuration
 
-- **Model:** `gpt-4o-mini`
+- **Model:** `gpt-5.4-mini`
 - **Temperature:** `0.8`
 - **Client:** OpenAI SDK (`src/lib/chat.js`)
 
