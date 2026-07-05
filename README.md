@@ -1,5 +1,7 @@
 # Persona AI 🤖☕⚡
 
+Hosted url [PersonaAI](https://persona-chatbot-ai.netlify.app/)
+
 An AI-powered chat app that lets you talk to two well-known Indian coding
 educators — **Hitesh Choudhary** and **Piyush Garg** — where an LLM responds in
 each person's distinct speaking style, teaching approach, and personality.
@@ -176,8 +178,3 @@ Handled in `src/lib/chat.js`:
 - **OpenAI API** (`gpt-4o-mini`) 
 - Plain CSS — styling (no UI library, dependency-light)
 
-## 🔮 Possible next steps
-
-- Move the OpenAI call to a backend to hide the API key
-- Add persistence (localStorage / DB) so chats survive refresh
-- Add more personas (just drop a new file in `src/personas/`)
